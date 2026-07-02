@@ -44,7 +44,7 @@ export default function App() {
       desc: "Planners semanais de toque aveludado, chaveiros de miçangas candy colors, adesivos holográficos e mimos inclusos em todo pacote.",
       badge: "Lançamento Exclusivo",
       coupon: "HELLONEKU",
-      image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=1200&auto=format&fit=crop",
+      image: "https://cdn.shopify.com/s/files/1/0533/0845/7144/products/bloom_2024_Soft_Cover_Planner_Desktop_Calendar_Notebook_Gold_Dots_Main_1024x1024.jpg?v=1687291111",
       color: "bg-linear-to-r from-brand-soft-pink via-brand-cream/30 to-white",
       buttonText: "Ver Papelaria"
     },
@@ -54,7 +54,7 @@ export default function App() {
       desc: "Proteja seus Photocards mais raros de K-Pop com sleeves acid-free livres de danos e pastas holográficas.",
       badge: "K-Pop Essential",
       coupon: "NEKURALOVE",
-      image: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1200&auto=format&fit=crop",
+      image: "https://cdn.shopify.com/s/files/1/0554/6544/3394/products/product-image-1748648119_1024x1024.jpg?v=1626354654",
       color: "bg-linear-to-r from-white via-brand-cream/45 to-brand-soft-pink/60",
       buttonText: "Garantir Organizador"
     },
@@ -64,7 +64,7 @@ export default function App() {
       desc: "Mais de R$ 34,00 de economia nos kits completos prontos para presentear quem você ama.",
       badge: "Melhor Custo-Benefício",
       coupon: "PIXLOVE",
-      image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=1200&auto=format&fit=crop",
+      image: "https://cdn.shopify.com/s/files/1/0247/7401/7101/products/stationery-super-box_1024x1024.jpg?v=1599999999",
       color: "bg-linear-to-r from-brand-soft-pink via-white to-brand-cream/40",
       buttonText: "Explorar Combos"
     }
@@ -325,7 +325,7 @@ export default function App() {
               {/* Left visual half */}
               <div className="md:w-5/12 bg-brand-cream/20 relative min-h-[220px] md:min-h-full">
                 <img
-                  src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=600&auto=format&fit=crop"
+                  src={PRODUCTS_DATA[7].image}
                   alt="Super Box Fanmade Neku Star"
                   className="object-cover w-full h-full absolute inset-0 group-hover:scale-102 transition-transform duration-300"
                   referrerPolicy="no-referrer"
@@ -378,7 +378,7 @@ export default function App() {
               {/* Left visual half */}
               <div className="md:w-5/12 bg-brand-cream/20 relative min-h-[220px] md:min-h-full">
                 <img
-                  src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=600&auto=format&fit=crop"
+                  src={PRODUCTS_DATA[8].image}
                   alt="Photocard Collector Pack"
                   className="object-cover w-full h-full absolute inset-0 group-hover:scale-102 transition-transform duration-300"
                   referrerPolicy="no-referrer"
