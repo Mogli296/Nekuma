@@ -1,0 +1,6 @@
+{
+  "name": "Nekura Shop",
+  "description": "E-commerce moderno e responsivo com a estética fofa-alternativa Nekura. Possui catálogo completo, carrinho dinâmico, simulador de frete por CEP, cupons de desconto e checkout simulado.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
