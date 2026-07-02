@@ -54,7 +54,7 @@ export default function App() {
       desc: "Proteja seus Photocards mais raros de K-Pop com sleeves acid-free livres de danos e pastas holográficas.",
       badge: "K-Pop Essential",
       coupon: "NEKURALOVE",
-      image: "https://cdn.shopify.com/s/files/1/0554/6544/3394/products/product-image-1748648119_1024x1024.jpg?v=1626354654",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRovg1MGQvmIoCseF6Dw253M94dBMNdLGnhbikdoqGiqQ&s=10",
       color: "bg-linear-to-r from-white via-brand-cream/45 to-brand-soft-pink/60",
       buttonText: "Garantir Organizador"
     },
