@@ -167,8 +167,7 @@ export default function App() {
             <button
               onClick={() => {
                 setSelectedCategory('Todos');
-                const catSection = document.getElementById('products-section');
-                if (catSection) catSection.scrollIntoView({ behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               className="text-brand-black hover:text-brand-cherry transition-colors cursor-pointer"
             >
