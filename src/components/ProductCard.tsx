@@ -54,11 +54,11 @@ export default function ProductCard({ product, onInquire }: ProductCardProps) {
       </div>
 
       {/* Product Image Stage */}
-      <div className="relative aspect-square w-full bg-brand-cream/30 overflow-hidden flex items-center justify-center p-3">
+      <div className="relative aspect-square w-full bg-brand-cream/40 overflow-hidden flex items-center justify-center p-4">
         <img
           src={product.image}
           alt={product.name}
-          className="object-cover w-full h-full rounded-xl group-hover:scale-105 transition-transform duration-500 ease-out"
+          className="object-contain w-full h-full rounded-xl group-hover:scale-105 transition-transform duration-500 ease-out"
           loading="lazy"
           referrerPolicy="no-referrer"
           id={`product-img-${product.id}`}
