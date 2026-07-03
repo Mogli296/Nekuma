@@ -8,7 +8,7 @@ export const PRODUCTS_DATA: Product[] = [
     originalPrice: 49.90,
     promoPrice: 39.90,
     pixPrice: 37.90, // ~5% disc over promo Price
-    image: 'https://i.pinimg.com/736x/85/fd/57/85fd570a514f5a0782a6930e5b9af095.jpg',
+    image: 'https://i.pinimg.com/736x/cc/87/57/cc875787707709fa04dd2aa6ed316df7.jpg',
     category: 'Papelaria',
     stock: 12,
     isNew: true,
@@ -29,7 +29,7 @@ export const PRODUCTS_DATA: Product[] = [
     originalPrice: 89.90,
     promoPrice: 69.90,
     pixPrice: 66.40,
-    image: 'https://i.pinimg.com/736x/cf/f5/e8/cff5e87bccb68c19534538d7552d3467.jpg',
+    image: 'https://i.pinimg.com/736x/5e/3d/ad/5e3dad403ba0f89c1af932a602384112.jpg',
     category: 'Photocards',
     stock: 8,
     isPromo: true,
@@ -49,7 +49,7 @@ export const PRODUCTS_DATA: Product[] = [
     originalPrice: 19.90,
     promoPrice: 14.90,
     pixPrice: 14.15,
-    image: 'https://i.pinimg.com/736x/5e/3d/ad/5e3dad403ba0f89c1af932a602384112.jpg',
+    image: 'https://i.pinimg.com/736x/85/fd/57/85fd570a514f5a0782a6930e5b9af095.jpg',
     category: 'Papelaria',
     stock: 45,
     isNew: true,
@@ -88,7 +88,7 @@ export const PRODUCTS_DATA: Product[] = [
     originalPrice: 24.90,
     promoPrice: 19.90,
     pixPrice: 18.90,
-    image: 'https://i.pinimg.com/736x/e8/5f/06/e85f064f782eb3996e7934cd6eb49c6f.jpg',
+    image: 'https://i.pinimg.com/736x/cf/f5/e8/cff5e87bccb68c19534538d7552d3467.jpg',
     category: 'Acessórios',
     stock: 18,
     rating: 4.9,
@@ -106,7 +106,7 @@ export const PRODUCTS_DATA: Product[] = [
     originalPrice: 39.90,
     promoPrice: 32.90,
     pixPrice: 31.25,
-    image: 'https://i.pinimg.com/736x/cc/87/57/cc875787707709fa04dd2aa6ed316df7.jpg',
+    image: 'https://i.pinimg.com/736x/e8/5f/06/e85f064f782eb3996e7934cd6eb49c6f.jpg',
     category: 'Acessórios',
     stock: 5,
     rating: 4.6,
@@ -124,7 +124,7 @@ export const PRODUCTS_DATA: Product[] = [
     originalPrice: 29.90,
     promoPrice: 19.90,
     pixPrice: 18.90,
-    image: 'https://cdn.shopify.com/s/files/1/0469/3927/5428/files/Screenshot_2024-08-19_at_14.36.56.png?v=1724071042',
+    image: 'https://i.pinimg.com/736x/1c/41/8a/1c418a0e09166cd0fa1f5c6ada93f12c.jpg',
     category: 'Photocards',
     stock: 30,
     isNew: true,
@@ -135,6 +135,66 @@ export const PRODUCTS_DATA: Product[] = [
       'Efeito: Corações e estrelas holográficos na parte frontal',
       'Fundo ultra transparente para não ofuscar o verso do card',
       'Material de alta densidade 100% livre de ácido'
+    ]
+  },
+  {
+    id: 'prod-8',
+    name: 'KIT COMBO: Super Box Fanmade Neku Star',
+    description: 'O combo supremo dos sonhos de papelaria e mimos! Inclui: 1 Planner Semanal, 1 Chaveiro Candy Beads, 2 Cartelas de Adesivos Holográficos e 1 Pack de Photocards Personalizados, tudo em uma linda caixa temática colecionável.',
+    originalPrice: 154.60,
+    promoPrice: 119.90,
+    pixPrice: 113.90,
+    image: 'https://i.pinimg.com/736x/81/25/7a/81257ae2dc5bbf6c99c3cc6cf63fc7d9.jpg',
+    category: 'Combos & Kits',
+    stock: 6,
+    isCombo: true,
+    rating: 5.0,
+    details: [
+      '1x Planner Semanal Colecionador K-Pop (R$ 39,90 individual)',
+      '1x Chaveiro Phone Strap Candy Beads (R$ 19,90 individual)',
+      '2x Cartelas de Adesivos Holográficos (R$ 29,80 individual)',
+      '1x Pack de Photocards Personalizados 10 un (R$ 20,00 individual)',
+      'Brinde: Caixa Temática colecionável Nekura Box',
+      'Super economia de mais de R$ 34,00!'
+    ]
+  },
+  {
+    id: 'prod-9',
+    name: 'KIT COMBO: Photocard Collector Starter Pack',
+    description: 'Kit ideal para quem quer começar a organizar sua coleção com estilo e segurança. Contém o Glitter Binder Nekura Vault e dois pacotes de Sleeves Holográficos Starry Heart (100 sleeves).',
+    originalPrice: 149.70,
+    promoPrice: 99.90,
+    pixPrice: 94.90,
+    image: 'https://i.pinimg.com/736x/cb/80/7e/cb807ec1fc30252db67554d6fae2b1cb.jpg',
+    category: 'Combos & Kits',
+    stock: 10,
+    isCombo: true,
+    isPromo: true,
+    rating: 5.0,
+    details: [
+      '1x Glitter Binder Photocard Organizer Nekura Vault',
+      '2x Pacotes de Sleeves Holográficos Starry Heart (100 sleeves no total)',
+      'Brinde: 1 Card colecionável holográfico exclusivo do mascote Neku',
+      'Super desconto: economize R$ 49,80 no combo!'
+    ]
+  },
+  {
+    id: 'prod-10',
+    name: 'Kit Polaroids Personalizadas - Pack 10 unidades',
+    description: 'Lindo pack de fotos estilo micro-polaroid instantânea de alta fidelidade! Você escolhe as imagens (doramas, kpop, viagens, fotos de casal) e nós imprimimos em formato retrô clássico.',
+    originalPrice: 34.90,
+    promoPrice: 25.00,
+    pixPrice: 23.65,
+    image: 'https://i.pinimg.com/736x/41/40/e3/4140e3fca401bbfe964348612ca49bf7.jpg',
+    category: 'Photocards',
+    stock: 25,
+    rating: 4.8,
+    details: [
+      'Contém 10 polaroids de alta definição',
+      'Papel fotográfico profissional brilhoso premium',
+      'Borda branca clássica com excelente área de legenda',
+      'Tamanho do item: 9,0 x 7,0 cm',
+      'Processo de proteção térmica UV contra desbotamento precoce'
     ]
   }
 ];
