@@ -252,7 +252,7 @@ export default function App() {
                     <img
                       src={slide.image}
                       alt={slide.title}
-                      className="object-cover w-full h-full max-h-[150px] sm:max-h-[180px] md:max-h-[300px] rounded-2xl md:rounded-3xl border border-brand-pink/10 shadow-md transform rotate-[-2deg] hover:rotate-0 transition-transform duration-300"
+                      className="object-contain w-full h-full max-h-[150px] sm:max-h-[180px] md:max-h-[300px] rounded-2xl md:rounded-3xl border border-brand-pink/10 shadow-md transform rotate-[-2deg] hover:rotate-0 transition-transform duration-300 bg-white/60 p-2.5"
                       referrerPolicy="no-referrer"
                     />
                   </div>
@@ -323,11 +323,11 @@ export default function App() {
               </div>
               
               {/* Left visual half */}
-              <div className="md:w-5/12 bg-brand-cream/20 relative min-h-[220px] md:min-h-full">
+              <div className="md:w-5/12 bg-brand-cream/35 relative min-h-[220px] md:min-h-full flex items-center justify-center p-5">
                 <img
                   src={PRODUCTS_DATA[7].image}
                   alt="Super Box Fanmade Neku Star"
-                  className="object-cover w-full h-full absolute inset-0 group-hover:scale-102 transition-transform duration-300"
+                  className="object-contain w-full h-full max-h-[180px] md:max-h-[240px] rounded-2xl group-hover:scale-102 transition-transform duration-300"
                   referrerPolicy="no-referrer"
                 />
               </div>
@@ -376,11 +376,11 @@ export default function App() {
               </div>
 
               {/* Left visual half */}
-              <div className="md:w-5/12 bg-brand-cream/20 relative min-h-[220px] md:min-h-full">
+              <div className="md:w-5/12 bg-brand-cream/35 relative min-h-[220px] md:min-h-full flex items-center justify-center p-5">
                 <img
                   src={PRODUCTS_DATA[8].image}
                   alt="Photocard Collector Pack"
-                  className="object-cover w-full h-full absolute inset-0 group-hover:scale-102 transition-transform duration-300"
+                  className="object-contain w-full h-full max-h-[180px] md:max-h-[240px] rounded-2xl group-hover:scale-102 transition-transform duration-300"
                   referrerPolicy="no-referrer"
                 />
               </div>
