@@ -106,7 +106,7 @@ export const PRODUCTS_DATA: Product[] = [
     originalPrice: 39.90,
     promoPrice: 32.90,
     pixPrice: 31.25,
-    image: 'https://cdn.shopify.com/s/files/1/0080/8124/4217/products/tote-bag-cute-dark_1024x1024.jpg?v=1584000000',
+    image: 'https://i.pinimg.com/736x/cc/87/57/cc875787707709fa04dd2aa6ed316df7.jpg',
     category: 'Acessórios',
     stock: 5,
     rating: 4.6,
@@ -176,25 +176,6 @@ export const PRODUCTS_DATA: Product[] = [
       '2x Pacotes de Sleeves Holográficos Starry Heart (100 sleeves no total)',
       'Brinde: 1 Card colecionável holográfico exclusivo do mascote Neku',
       'Super desconto: economize R$ 49,80 no combo!'
-    ]
-  },
-  {
-    id: 'prod-10',
-    name: 'Kit Polaroids Personalizadas - Pack 10 unidades',
-    description: 'Lindo pack de fotos estilo revelação polaroid instantânea de alta fidelidade! Você escolhe as imagens (doramas, kpop, viagens, fotos de casal) e nós imprimimos em formato retrô clássico.',
-    originalPrice: 34.90,
-    promoPrice: 25.00,
-    pixPrice: 23.65,
-    image: 'https://cdn.shopify.com/s/files/1/0511/4275/4488/products/polaroids-set-retro_1024x1024.jpg?v=1621111111',
-    category: 'Photocards',
-    stock: 25,
-    rating: 4.8,
-    details: [
-      'Contém 10 polaroids de alta definição',
-      'Papel fotográfico profissional brilhoso premium',
-      'Borda branca clássica com excelente área de legenda',
-      'Tamanho do item: 9,0 x 7,0 cm',
-      'Processo de proteção térmica UV contra desbotamento precoce'
     ]
   }
 ];
