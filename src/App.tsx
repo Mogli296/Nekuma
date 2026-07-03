@@ -44,7 +44,7 @@ export default function App() {
       desc: "Planners semanais de toque aveludado, chaveiros de miçangas candy colors, adesivos holográficos e mimos inclusos em todo pacote.",
       badge: "Lançamento Exclusivo",
       coupon: "HELLONEKU",
-      image: "https://i.pinimg.com/736x/cc/87/57/cc875787707709fa04dd2aa6ed316df7.jpg",
+      image: "https://i.pinimg.com/736x/bc/87/02/bc8702c9ddf385075f324271fad05a11.jpg",
       color: "bg-linear-to-r from-brand-soft-pink via-brand-cream/30 to-white",
       buttonText: "Ver Papelaria"
     },
@@ -64,7 +64,7 @@ export default function App() {
       desc: "Mais de R$ 34,00 de economia nos kits completos prontos para presentear quem você ama.",
       badge: "Melhor Custo-Benefício",
       coupon: "PIXLOVE",
-      image: "https://i.pinimg.com/736x/85/fd/57/85fd570a514f5a0782a6930e5b9af095.jpg",
+      image: "https://i.pinimg.com/736x/b8/0b/2d/b80b2d72daa72a23ab6b5193ff3ee008.jpg",
       color: "bg-linear-to-r from-brand-soft-pink via-white to-brand-cream/40",
       buttonText: "Explorar Combos"
     }
@@ -247,12 +247,12 @@ export default function App() {
                   </div>
 
                   {/* Image content right */}
-                  <div className="w-full md:w-5/12 h-[150px] sm:h-[180px] md:h-full relative flex items-center justify-center mt-4 md:mt-0">
-                    <div className="absolute inset-0 bg-brand-soft-pink/40 rounded-2xl blur-xl rotate-6 transform scale-90" />
+                  <div className="w-full md:w-5/12 relative flex items-center justify-center mt-4 md:mt-0 z-10">
+                    <div className="absolute inset-0 bg-brand-soft-pink/50 rounded-2xl md:rounded-3xl blur-xl rotate-6 transform scale-95" />
                     <img
                       src={slide.image}
                       alt={slide.title}
-                      className="object-contain w-full h-full max-h-[150px] sm:max-h-[180px] md:max-h-[300px] rounded-2xl md:rounded-3xl border border-brand-pink/10 shadow-md transform rotate-[-2deg] hover:rotate-0 transition-transform duration-300 bg-white/60 p-2.5"
+                      className="object-cover aspect-square h-[190px] sm:h-[230px] md:h-[340px] rounded-2xl md:rounded-3xl border border-brand-pink/15 shadow-xl transform rotate-[-2.5deg] hover:rotate-0 transition-all duration-300 hover:scale-[1.03] cursor-pointer"
                       referrerPolicy="no-referrer"
                     />
                   </div>
