@@ -357,11 +357,11 @@ export default function CartDrawer({
                           </button>
 
                           {/* Image */}
-                          <div className="w-16 h-16 rounded-lg bg-gray-50 flex-shrink-0 overflow-hidden border border-brand-pink/10">
+                          <div className="w-16 h-16 rounded-lg bg-brand-cream/30 flex-shrink-0 overflow-hidden border border-brand-pink/10 p-1 flex items-center justify-center">
                             <img
                               src={item.product.image}
                               alt={item.product.name}
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-contain"
                               referrerPolicy="no-referrer"
                             />
                           </div>
