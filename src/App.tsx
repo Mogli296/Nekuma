@@ -44,7 +44,7 @@ export default function App() {
       desc: "Planners semanais de toque aveludado, chaveiros de miçangas candy colors, adesivos holográficos e mimos inclusos em todo pacote.",
       badge: "Lançamento Exclusivo",
       coupon: "HELLONEKU",
-      image: "https://cdn.shopify.com/s/files/1/0533/0845/7144/products/bloom_2024_Soft_Cover_Planner_Desktop_Calendar_Notebook_Gold_Dots_Main_1024x1024.jpg?v=1687291111",
+      image: "https://i.pinimg.com/736x/cc/87/57/cc875787707709fa04dd2aa6ed316df7.jpg",
       color: "bg-linear-to-r from-brand-soft-pink via-brand-cream/30 to-white",
       buttonText: "Ver Papelaria"
     },
@@ -54,7 +54,7 @@ export default function App() {
       desc: "Proteja seus Photocards mais raros de K-Pop com sleeves acid-free livres de danos e pastas holográficas.",
       badge: "K-Pop Essential",
       coupon: "NEKURALOVE",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRovg1MGQvmIoCseF6Dw253M94dBMNdLGnhbikdoqGiqQ&s=10",
+      image: "https://i.pinimg.com/736x/5e/3d/ad/5e3dad403ba0f89c1af932a602384112.jpg",
       color: "bg-linear-to-r from-white via-brand-cream/45 to-brand-soft-pink/60",
       buttonText: "Garantir Organizador"
     },
@@ -64,7 +64,7 @@ export default function App() {
       desc: "Mais de R$ 34,00 de economia nos kits completos prontos para presentear quem você ama.",
       badge: "Melhor Custo-Benefício",
       coupon: "PIXLOVE",
-      image: "https://cdn.shopify.com/s/files/1/0247/7401/7101/products/stationery-super-box_1024x1024.jpg?v=1599999999",
+      image: "https://i.pinimg.com/736x/85/fd/57/85fd570a514f5a0782a6930e5b9af095.jpg",
       color: "bg-linear-to-r from-brand-soft-pink via-white to-brand-cream/40",
       buttonText: "Explorar Combos"
     }
