@@ -136,47 +136,6 @@ export const PRODUCTS_DATA: Product[] = [
       'Fundo ultra transparente para não ofuscar o verso do card',
       'Material de alta densidade 100% livre de ácido'
     ]
-  },
-  {
-    id: 'prod-8',
-    name: 'KIT COMBO: Super Box Fanmade Neku Star',
-    description: 'O combo supremo dos sonhos de papelaria e mimos! Inclui: 1 Planner Semanal, 1 Chaveiro Candy Beads, 2 Cartelas de Adesivos Holográficos e 1 Pack de Photocards Personalizados, tudo em uma linda caixa temática colecionável.',
-    originalPrice: 154.60,
-    promoPrice: 119.90,
-    pixPrice: 113.90,
-    image: 'https://cdn.shopify.com/s/files/1/0247/7401/7101/products/stationery-super-box_1024x1024.jpg?v=1599999999',
-    category: 'Combos & Kits',
-    stock: 6,
-    isCombo: true,
-    rating: 5.0,
-    details: [
-      '1x Planner Semanal Colecionador K-Pop (R$ 39,90 individual)',
-      '1x Chaveiro Phone Strap Candy Beads (R$ 19,90 individual)',
-      '2x Cartelas de Adesivos Holográficos (R$ 29,80 individual)',
-      '1x Pack de Photocards Personalizados 10 un (R$ 20,00 individual)',
-      'Brinde: Caixa Temática colecionável Nekura Box',
-      'Super economia de mais de R$ 34,00!'
-    ]
-  },
-  {
-    id: 'prod-9',
-    name: 'KIT COMBO: Photocard Collector Starter Pack',
-    description: 'Kit ideal para quem quer começar a organizar sua coleção com estilo e segurança. Contém o Glitter Binder Nekura Vault e dois pacotes de Sleeves Holográficos Starry Heart (100 sleeves).',
-    originalPrice: 149.70,
-    promoPrice: 99.90,
-    pixPrice: 94.90,
-    image: 'https://cdn.shopify.com/s/files/1/0438/4113/3733/products/binder-set-holographic_1024x1024.jpg?v=1602345679',
-    category: 'Combos & Kits',
-    stock: 10,
-    isCombo: true,
-    isPromo: true,
-    rating: 5.0,
-    details: [
-      '1x Glitter Binder Photocard Organizer Nekura Vault',
-      '2x Pacotes de Sleeves Holográficos Starry Heart (100 sleeves no total)',
-      'Brinde: 1 Card colecionável holográfico exclusivo do mascote Neku',
-      'Super desconto: economize R$ 49,80 no combo!'
-    ]
   }
 ];
 
