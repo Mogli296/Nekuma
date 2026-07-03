@@ -59,11 +59,11 @@ export default function ProductModal({ product, onClose, onInquire }: ProductMod
           </button>
 
           {/* Left panel: Image stage */}
-          <div className="md:w-1/2 bg-brand-cream/20 p-6 flex items-center justify-center relative border-b md:border-b-0 md:border-r border-brand-pink/10">
+          <div className="md:w-1/2 bg-brand-cream/30 p-6 flex items-center justify-center relative border-b md:border-b-0 md:border-r border-brand-pink/10 min-h-[300px] md:min-h-0">
             <img
               src={product.image}
               alt={product.name}
-              className="object-cover w-full max-h-[300px] md:max-h-full aspect-square rounded-2xl shadow-sm"
+              className="object-contain w-full h-full max-h-[320px] md:max-h-[480px] rounded-2xl"
               referrerPolicy="no-referrer"
             />
             
