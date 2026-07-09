@@ -46,16 +46,6 @@ export default function App() {
       buttonText: "Ver Papelaria"
     },
     {
-      title: "Glitter Binders & Sleeves Holográficos ✨",
-      subtitle: "Coleção Nekura Vault 🖤",
-      desc: "Proteja seus Photocards mais raros de K-Pop com sleeves acid-free livres de danos e pastas holográficas.",
-      badge: "K-Pop Essential",
-      coupon: "NEKURALOVE",
-      image: "https://i.pinimg.com/736x/5e/3d/ad/5e3dad403ba0f89c1af932a602384112.jpg",
-      color: "bg-linear-to-r from-white via-brand-cream/45 to-brand-soft-pink/60",
-      buttonText: "Garantir Organizador"
-    },
-    {
       title: "Super Boxes Temáticas com Desconto! 🎁🖤",
       subtitle: "Combos Promocionais",
       desc: "Mais de R$ 34,00 de economia nos kits completos prontos para presentear quem você ama.",
