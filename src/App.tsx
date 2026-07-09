@@ -235,6 +235,58 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      {/* --- NEKU'S INTERACTIVE CORNER (Cantinho do Neku) --- */}
+      <section className="py-4 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="bg-linear-to-r from-brand-black via-brand-black/95 to-zinc-900 rounded-3xl border border-brand-pink/20 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-lg">
+            
+            {/* Background glowing decorations */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-pink/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-brand-cherry/10 rounded-full blur-2xl pointer-events-none" />
+            
+            {/* Mascot on the left/center */}
+            <div className="flex flex-col sm:flex-row items-center gap-6 z-10 max-w-2xl">
+              <div className="relative bg-zinc-900/60 p-4 rounded-2xl border border-brand-pink/10 shadow-inner flex-shrink-0 flex items-center justify-center">
+                <MascotNeku size={130} interactive={true} bubbleAlign="center" />
+              </div>
+              <div className="text-center sm:text-left space-y-2">
+                <span className="inline-block bg-brand-cherry/90 text-white text-[9px] font-bold font-mono uppercase px-2.5 py-0.5 rounded-full tracking-wider border border-brand-pink/20">
+                  Mascote Oficial 🦇🐈
+                </span>
+                <h3 className="text-lg sm:text-xl font-bold font-display text-brand-cream tracking-tight">
+                  Olá! Eu sou o <span className="text-brand-pink font-extrabold">Neku</span>! 🖤
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-sans">
+                  Sou o guardião do ateliê Nekura Shop! Minha missão é cuidar de cada photocard, binder e adesivo como se fossem meus próprios tesouros fofos. 
+                  <span className="block mt-1.5 text-brand-pink font-semibold font-mono">
+                    🐾 Dica: Toque em mim ali no cantinho da tela para bater um papo, ouvir meus barulhinhos eletrônicos e descobrir cupons secretos!
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            {/* CTA action on the right */}
+            <div className="z-10 flex flex-col items-center sm:items-stretch gap-2 flex-shrink-0 w-full sm:w-auto">
+              <button
+                onClick={() => {
+                  const catSection = document.getElementById('products-section');
+                  if (catSection) catSection.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="w-full sm:w-auto bg-brand-pink hover:bg-brand-cherry text-brand-black hover:text-white font-display font-bold text-xs py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md hover:shadow-brand-pink/20"
+              >
+                <span>Ver Mimos do Neku</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+              <div className="text-[10px] text-gray-400 font-mono text-center sm:text-right">
+                Cupom ativo: <span className="text-brand-pink font-bold">HELLONEKU</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       <section id="products-section" className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           
@@ -444,7 +496,11 @@ export default function App() {
       </footer>
 
       {/* --- INTEGRATED MODALS & OVERLAYS --- */}
-      <MascotNeku size={120} className="fixed bottom-6 right-6 z-40" />
+      <div className="fixed bottom-8 right-8 md:bottom-12 md:right-12 z-40 group pointer-events-auto">
+        {/* Pulsing premium beacon behind */}
+        <div className="absolute inset-2 bg-brand-pink/25 rounded-full blur-xl group-hover:bg-brand-pink/40 transition-all animate-pulse pointer-events-none" />
+        <MascotNeku size={130} bubbleAlign="right" />
+      </div>
 
         </div>
       )}
