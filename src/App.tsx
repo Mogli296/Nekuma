@@ -21,20 +21,17 @@ import ProductCard from './components/ProductCard';
 import ProductModal from './components/ProductModal';
 import NekuSvg from './components/NekuSvg';
 import IntroScreen from './components/IntroScreen';
+import MascotNeku from './components/MascotNeku';
 
 export default function App() {
   // --- STATE SYSTEM ---
   const [hasEntered, setHasEntered] = useState<boolean>(false);
-  const [selectedCategory, setSelectedCategory] = useState<string>('Todos');
   
   // Modals & Drawers States
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   // Hero Banner Slider State
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  // Flash sales countdown simulation state (resets to 3 hours 14 mins every day)
-  const [countdown, setCountdown] = useState({ hours: 3, minutes: 14, seconds: 45 });
 
   // --- CAROUSEL AUTO-ROTATE ---
   const slides = [
@@ -77,37 +74,12 @@ export default function App() {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  // --- FLASH SALES COUNTDOWN ---
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { hours: prev.hours, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        } else {
-          return { hours: 3, minutes: 14, seconds: 45 }; // Reset simulation
-        }
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
   // --- CONTACT / INQUIRY FUNCTION ---
   const handleInquireProduct = (product: Product, quantity: number = 1) => {
     const text = `Olá! Vi o produto "${product.name}" (${quantity}x) no site da Nekura Shop e gostaria de mais informações!`;
     const encodedText = encodeURIComponent(text);
     window.open(`https://api.whatsapp.com/send?phone=5511987654321&text=${encodedText}`, '_blank');
   };
-
-  // --- FILTER & SEARCH SYSTEM ---
-  const filteredProducts = PRODUCTS_DATA.filter((product) => {
-    return selectedCategory === 'Todos' || product.category === selectedCategory;
-  });
-
-  const categories = ['Todos', 'Papelaria', 'Photocards', 'Combos & Kits', 'Acessórios'];
 
   // Format currency helper
   const formatPriceBRL = (value: number) => {
@@ -143,7 +115,6 @@ export default function App() {
           <div 
             className="flex items-center gap-3.5 cursor-pointer group select-none"
             onClick={() => {
-              setSelectedCategory('Todos');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
@@ -166,7 +137,6 @@ export default function App() {
           <nav className="hidden md:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider">
             <button
               onClick={() => {
-                setSelectedCategory('Todos');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               className="text-brand-black hover:text-brand-cherry transition-colors cursor-pointer"
@@ -275,159 +245,11 @@ export default function App() {
           </div>
         </div>
       </section>
-
-      {/* --- PROMOTIONS SPOTLIGHT (Seção de Promoções e Novidades) --- */}
-      <section id="highlights-section" className="py-12 bg-linear-to-b from-white to-brand-cream/10 border-t border-brand-pink/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          
-          {/* Section Header with simulated Countdown for VIP Flash Sales */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-            <div className="space-y-1">
-              <span className="text-[10px] font-bold font-mono uppercase tracking-widest text-brand-cherry">
-                Imperdível do Ateliê
-              </span>
-              <h2 className="text-xl sm:text-2xl font-bold font-display text-brand-black tracking-tight flex items-center gap-1.5">
-                <Sparkles className="w-5 h-5 text-brand-pink animate-spin-slow" />
-                Combos & Kits Especiais
-              </h2>
-            </div>
-            
-            {/* Flash Sales Simulated Timer */}
-            <div className="inline-flex items-center gap-2.5 bg-brand-soft-pink border border-brand-pink/30 px-3 py-2 rounded-2xl text-xs font-semibold">
-              <Clock className="w-4 h-4 text-brand-cherry flex-shrink-0" />
-              <span className="text-brand-wine font-bold uppercase tracking-wider">Ofertas terminam em:</span>
-              <span className="font-mono bg-brand-cherry text-white px-2 py-0.5 rounded-md font-bold text-xs">
-                {String(countdown.hours).padStart(2, '0')}h
-              </span>
-              <span className="text-brand-cherry">:</span>
-              <span className="font-mono bg-brand-cherry text-white px-2 py-0.5 rounded-md font-bold text-xs">
-                {String(countdown.minutes).padStart(2, '0')}m
-              </span>
-              <span className="text-brand-cherry">:</span>
-              <span className="font-mono bg-brand-cherry text-white px-2 py-0.5 rounded-md font-bold text-xs animate-pulse">
-                {String(countdown.seconds).padStart(2, '0')}s
-              </span>
-            </div>
-          </div>
-
-          {/* Highlights Bento-Grid layout representing 2 larger promos / combos */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            
-            {/* Spotlight Card 1: Super Box Fanmade Neku Star (Combo) */}
-            <div 
-              onClick={() => handleInquireProduct(PRODUCTS_DATA[7], 1)}
-              className="bg-white border border-brand-pink/20 rounded-3xl overflow-hidden hover:border-brand-cherry/40 transition-all duration-300 shadow-xs hover:shadow-lg flex flex-col md:flex-row relative group cursor-pointer"
-            >
-              <div className="absolute top-4 left-4 z-10 bg-brand-black text-brand-cream text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                Economize R$ 34,00 ⚡
-              </div>
-              
-              {/* Left visual half */}
-              <div className="md:w-5/12 bg-brand-cream/35 relative min-h-[220px] md:min-h-full flex items-center justify-center p-5">
-                <img
-                  src={PRODUCTS_DATA[7].image}
-                  alt="Super Box Fanmade Neku Star"
-                  className="object-contain w-full h-full max-h-[180px] md:max-h-[240px] rounded-2xl group-hover:scale-102 transition-transform duration-300"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-
-              {/* Right contents half */}
-              <div className="md:w-7/12 p-6 sm:p-8 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <span className="text-[10px] font-bold font-mono uppercase text-brand-cherry">Combo Completo</span>
-                  <h3 className="text-lg font-bold font-display text-brand-black group-hover:text-brand-cherry transition-colors duration-200">
-                    KIT COMBO: Super Box Fanmade Neku Star
-                  </h3>
-                  <p className="text-xs text-gray-500 leading-relaxed">
-                    O combo supremo dos sonhos de papelaria e mimos! Inclui: Planner Semanal, Chaveiro Candy Beads, 2 cartelas de adesivos holográficos e photocards.
-                  </p>
-                  
-                  {/* Small list items checklist */}
-                  <div className="pt-2">
-                    <ul className="text-[10px] text-gray-600 space-y-1">
-                      <li className="flex items-center gap-1.5"><span className="text-brand-pink">✦</span> Planner Semanal Colecionador K-Pop</li>
-                      <li className="flex items-center gap-1.5"><span className="text-brand-pink">✦</span> Chaveiro Phone Strap Candy Beads</li>
-                      <li className="flex items-center gap-1.5"><span className="text-brand-pink">✦</span> Adesivos & Photocards inclusos</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="pt-5 border-t border-brand-pink/10 mt-4 flex items-center justify-between gap-3">
-                  <div className="space-y-0.5">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-gray-400 line-through">R$ 154,60</span>
-                      <span className="bg-brand-soft-pink text-brand-cherry text-[10px] font-bold font-mono px-1.5 rounded-sm">Combo</span>
-                    </div>
-                    <p className="font-mono text-xl font-black text-brand-black">R$ 119,90</p>
-                    <p className="text-[10px] text-emerald-600 font-bold">R$ 113,90 no Pix (-5%)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Spotlight Card 2: Photocard Collector Starter Pack */}
-            <div 
-              onClick={() => handleInquireProduct(PRODUCTS_DATA[8], 1)}
-              className="bg-white border border-brand-pink/20 rounded-3xl overflow-hidden hover:border-brand-cherry/40 transition-all duration-300 shadow-xs hover:shadow-lg flex flex-col md:flex-row relative group cursor-pointer"
-            >
-              <div className="absolute top-4 left-4 z-10 bg-brand-black text-brand-cream text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                Economize R$ 49,80 ⚡
-              </div>
-
-              {/* Left visual half */}
-              <div className="md:w-5/12 bg-brand-cream/35 relative min-h-[220px] md:min-h-full flex items-center justify-center p-5">
-                <img
-                  src={PRODUCTS_DATA[8].image}
-                  alt="Photocard Collector Pack"
-                  className="object-contain w-full h-full max-h-[180px] md:max-h-[240px] rounded-2xl group-hover:scale-102 transition-transform duration-300"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-
-              {/* Right contents half */}
-              <div className="md:w-7/12 p-6 sm:p-8 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <span className="text-[10px] font-bold font-mono uppercase text-brand-cherry">Combo K-Pop</span>
-                  <h3 className="text-lg font-bold font-display text-brand-black group-hover:text-brand-cherry transition-colors duration-200">
-                    KIT COMBO: Photocard Collector Starter Pack
-                  </h3>
-                  <p className="text-xs text-gray-500 leading-relaxed">
-                    Comece sua coleção com proteção máxima! Contém o glitter binder Nekura Vault de 6 argolas e 2 pacotes de Sleeves Holográficos (100 sleeves).
-                  </p>
-
-                  <div className="pt-2">
-                    <ul className="text-[10px] text-gray-600 space-y-1">
-                      <li className="flex items-center gap-1.5"><span className="text-brand-pink">✦</span> Fichário Glitter Nekura Vault</li>
-                      <li className="flex items-center gap-1.5"><span className="text-brand-pink">✦</span> 100 Sleeves Coração Holográfico</li>
-                      <li className="flex items-center gap-1.5"><span className="text-brand-pink">✦</span> Brinde: 1 Card Holográfico do Neku</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="pt-5 border-t border-brand-pink/10 mt-4 flex items-center justify-between gap-3">
-                  <div className="space-y-0.5">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-gray-400 line-through">R$ 149,70</span>
-                      <span className="bg-brand-soft-pink text-brand-cherry text-[10px] font-bold font-mono px-1.5 rounded-sm">Kit VIP</span>
-                    </div>
-                    <p className="font-mono text-xl font-black text-brand-black">R$ 99,90</p>
-                    <p className="text-[10px] text-emerald-600 font-bold">R$ 94,90 no Pix (-5%)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* --- PRODUCT SECTION (Seção de Produtos em Grid) --- */}
       <section id="products-section" className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           
-          {/* Section title & Category filters row */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 pb-6 border-b border-brand-pink/15 mb-8">
+          {/* Section title */}
+          <div className="pb-6 border-b border-brand-pink/15 mb-8">
             <div className="space-y-1">
               <span className="text-[10px] font-bold font-mono uppercase tracking-widest text-brand-cherry">
                 Catálogo de Miminhos
@@ -436,73 +258,18 @@ export default function App() {
                 Conheça Nossos Produtos 🛍️
               </h2>
             </div>
-
-            {/* Scrollable Category filter bar */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-1.5 md:pb-0 scrollbar-none scroll-smooth">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-2 rounded-xl text-xs font-semibold font-display transition-all whitespace-nowrap cursor-pointer ${
-                    selectedCategory === cat
-                      ? 'bg-brand-black text-brand-cream border border-brand-black shadow-xs'
-                      : 'bg-brand-cream/30 text-gray-600 border border-brand-pink/10 hover:border-brand-pink/30 hover:bg-white'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
           </div>
 
-          {/* Active filter feedback banner */}
-          {selectedCategory !== 'Todos' && (
-            <div className="bg-brand-cream/20 border border-brand-pink/10 rounded-2xl p-3.5 mb-6 text-xs text-gray-500 flex items-center justify-between">
-              <span>
-                Mostrando <span className="font-bold text-brand-black">{filteredProducts.length}</span> resultados para: <span className="font-bold text-brand-cherry bg-brand-soft-pink px-2 py-0.5 rounded-md ml-1">{selectedCategory}</span>
-              </span>
-              <button
-                onClick={() => {
-                  setSelectedCategory('Todos');
-                }}
-                className="text-brand-cherry font-bold hover:underline cursor-pointer"
-              >
-                Limpar filtros
-              </button>
-            </div>
-          )}
-
           {/* GRID OF PRODUCTS */}
-          {filteredProducts.length === 0 ? (
-            /* EMPTY CATALOG STATE */
-            <div className="py-16 text-center space-y-4">
-              <div className="w-16 h-16 bg-brand-soft-pink/60 rounded-full flex items-center justify-center text-brand-cherry mx-auto">
-                <Info className="w-8 h-8" />
-              </div>
-              <div className="space-y-1">
-                <p className="font-display font-bold text-base text-brand-black">Nenhum miminho encontrado!</p>
-                <p className="text-xs text-gray-400 max-w-[280px] mx-auto">Tente alterar o filtro de categoria ou buscar outro termo do catálogo.</p>
-              </div>
-              <button
-                onClick={() => {
-                  setSelectedCategory('Todos');
-                }}
-                className="bg-brand-black hover:bg-brand-cherry text-brand-cream hover:text-white font-display font-bold text-xs py-2 px-5 rounded-xl transition-all cursor-pointer"
-              >
-                Ver Catálogo Completo
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {filteredProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  onInquire={handleInquireProduct}
-                />
-              ))}
-            </div>
-          )}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {PRODUCTS_DATA.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                onInquire={handleInquireProduct}
+              />
+            ))}
+          </div>
 
         </div>
       </section>
@@ -591,20 +358,50 @@ export default function App() {
             <div className="space-y-3">
               <h4 className="font-display font-bold text-xs text-brand-black uppercase tracking-wider">Explorar Loja</h4>
               <ul className="space-y-2 text-[11px]">
-                {categories.map((cat) => (
-                  <li key={cat}>
-                    <button
-                      onClick={() => {
-                        setSelectedCategory(cat);
-                        const catSection = document.getElementById('products-section');
-                        if (catSection) catSection.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className="hover:text-brand-cherry transition-colors cursor-pointer"
-                    >
-                      {cat === 'Todos' ? 'Todos os Produtos' : cat}
-                    </button>
-                  </li>
-                ))}
+                <li>
+                  <button
+                    onClick={() => {
+                      const catSection = document.getElementById('products-section');
+                      if (catSection) catSection.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="hover:text-brand-cherry transition-colors cursor-pointer text-left"
+                  >
+                    Todos os Produtos
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      const catSection = document.getElementById('products-section');
+                      if (catSection) catSection.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="hover:text-brand-cherry transition-colors cursor-pointer text-left"
+                  >
+                    Papelaria
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      const catSection = document.getElementById('products-section');
+                      if (catSection) catSection.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="hover:text-brand-cherry transition-colors cursor-pointer text-left"
+                  >
+                    Photocards
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      const catSection = document.getElementById('products-section');
+                      if (catSection) catSection.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="hover:text-brand-cherry transition-colors cursor-pointer text-left"
+                  >
+                    Acessórios
+                  </button>
+                </li>
               </ul>
             </div>
 
@@ -657,6 +454,7 @@ export default function App() {
       </footer>
 
       {/* --- INTEGRATED MODALS & OVERLAYS --- */}
+      <MascotNeku size={120} className="fixed bottom-6 right-6 z-40" />
 
         </div>
       )}
