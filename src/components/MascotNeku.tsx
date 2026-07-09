@@ -51,26 +51,65 @@ export default function MascotNeku({ className = '', size = 120, interactive = t
     setBubbleText(randomQuote);
     setShowBubble(true);
     
-    // Play a cute soft retro synth chime/meow sound!
+    // Play a cute synthesized kitty meow sound!
     try {
       const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-      
-      osc.type = 'sine';
       const now = audioCtx.currentTime;
       
-      // Retro chime frequency pattern (cute electronic meow/purr)
-      osc.frequency.setValueAtTime(523.25, now); // C5
-      osc.frequency.exponentialRampToValueAtTime(1046.50, now + 0.12); // C6
+      const osc1 = audioCtx.createOscillator();
+      const osc2 = audioCtx.createOscillator();
+      const filter = audioCtx.createBiquadFilter();
+      const lowpass = audioCtx.createBiquadFilter();
+      const gain = audioCtx.createGain();
       
-      gain.gain.setValueAtTime(0.12, now);
-      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+      // Main fundamental pitch (high and sweet, like a kitten)
+      osc1.type = 'triangle';
+      osc1.frequency.setValueAtTime(580, now);
+      osc1.frequency.exponentialRampToValueAtTime(880, now + 0.12);
+      osc1.frequency.exponentialRampToValueAtTime(450, now + 0.42);
       
-      osc.start(now);
-      osc.stop(now + 0.25);
+      // Harmonic resonance (adds a warm nasal 'vowel' texture)
+      osc2.type = 'sawtooth';
+      // Tune it exactly 1.5x (perfect fifth) above for the cute feline nasal vocalization
+      osc2.frequency.setValueAtTime(580 * 1.5, now);
+      osc2.frequency.exponentialRampToValueAtTime(880 * 1.5, now + 0.12);
+      osc2.frequency.exponentialRampToValueAtTime(450 * 1.5, now + 0.42);
+      
+      const osc2Gain = audioCtx.createGain();
+      osc2Gain.gain.setValueAtTime(0.04, now); // Keep sawtooth quiet so it only adds warmth/formant, not harshness
+      
+      // Oral/Vowel formant filter (highly resonant bandpass to mimic 'm-ee-aa-oo-ww')
+      filter.type = 'bandpass';
+      filter.Q.setValueAtTime(3.5, now); // Sweet resonance peak
+      filter.frequency.setValueAtTime(1200, now); // starts closed (m-)
+      filter.frequency.exponentialRampToValueAtTime(2200, now + 0.12); // wide open (ee-aa)
+      filter.frequency.exponentialRampToValueAtTime(650, now + 0.42); // closing (oo-ww)
+      
+      // Secondary lowpass to filter out any clicky or overly sharp high frequencies
+      lowpass.type = 'lowpass';
+      lowpass.frequency.setValueAtTime(3000, now);
+      
+      // Amplitude envelope (attack, sustain peak, long cute release)
+      gain.gain.setValueAtTime(0.001, now);
+      gain.gain.linearRampToValueAtTime(0.18, now + 0.06); // soft kitten 'm' attack
+      gain.gain.exponentialRampToValueAtTime(0.14, now + 0.22); // sweet meow body
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.45); // clean closing fade-out
+      
+      // Connect nodes
+      osc1.connect(filter);
+      
+      osc2.connect(osc2Gain);
+      osc2Gain.connect(filter);
+      
+      filter.connect(lowpass);
+      lowpass.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      // Start/Stop
+      osc1.start(now);
+      osc2.start(now);
+      osc1.stop(now + 0.46);
+      osc2.stop(now + 0.46);
     } catch (e) {
       // Ignore audio errors gracefully
     }
