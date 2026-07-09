@@ -6,9 +6,10 @@ interface MascotProps {
   className?: string;
   size?: number;
   interactive?: boolean;
+  bubbleAlign?: 'center' | 'right';
 }
 
-export default function MascotNeku({ className = '', size = 120, interactive = true }: MascotProps) {
+export default function MascotNeku({ className = '', size = 120, interactive = true, bubbleAlign = 'center' }: MascotProps) {
   const [clickCount, setClickCount] = useState(0);
   const [showBubble, setShowBubble] = useState(false);
   const [bubbleText, setBubbleText] = useState("");
@@ -89,11 +90,23 @@ export default function MascotNeku({ className = '', size = 120, interactive = t
             animate={{ opacity: 1, y: -size * 0.45 - 35, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.8 }}
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            className="absolute z-40 bg-brand-black text-brand-cream border border-brand-pink/30 px-3 py-2 rounded-2xl font-sans text-center shadow-lg pointer-events-none max-w-[200px]"
-            style={{ width: 'max-content' }}
+            className={`absolute z-40 bg-brand-black text-brand-cream border border-brand-pink/30 px-3 py-2 rounded-2xl font-sans text-center shadow-lg pointer-events-none max-w-[200px] ${
+              bubbleAlign === 'right' ? '' : 'left-1/2 -translate-x-1/2'
+            }`}
+            style={{ 
+              width: 'max-content',
+              right: bubbleAlign === 'right' ? '8px' : undefined
+            }}
           >
             {/* Arrow */}
-            <div className="absolute bottom-[-6px] left-1/2 transform -translate-x-1/2 w-3 h-3 bg-brand-black border-r border-b border-brand-pink/30 rotate-45" />
+            <div 
+              className={`absolute bottom-[-6px] w-3 h-3 bg-brand-black border-r border-b border-brand-pink/30 rotate-45 ${
+                bubbleAlign === 'right' ? '' : 'left-1/2 -translate-x-1/2'
+              }`} 
+              style={{
+                right: bubbleAlign === 'right' ? `${(size / 2) - 8 - 6}px` : undefined
+              }}
+            />
             <p className="text-[10px] font-medium leading-normal tracking-wide text-white">
               {bubbleText}
             </p>
