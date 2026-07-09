@@ -496,11 +496,6 @@ export default function App() {
       </footer>
 
       {/* --- INTEGRATED MODALS & OVERLAYS --- */}
-      <div className="fixed bottom-8 right-8 md:bottom-12 md:right-12 z-40 group pointer-events-auto">
-        {/* Pulsing premium beacon behind */}
-        <div className="absolute inset-2 bg-brand-pink/25 rounded-full blur-xl group-hover:bg-brand-pink/40 transition-all animate-pulse pointer-events-none" />
-        <MascotNeku size={130} bubbleAlign="right" />
-      </div>
 
         </div>
       )}
